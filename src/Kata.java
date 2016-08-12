@@ -4,28 +4,32 @@
 public class Kata {
 
 
-    // method to add a space between every letter of the word given
-    public String explode(String inputWord) {
+    // method to add a space between every letter of the string given
+    public String explode(String inputString) {
 
-        // sets length to the input word length
-        int length = inputWord.length();
+        // sets length to the input string length
+        int length = inputString.length();
 
-        // sets a new array for letters
-        char[] letters = new char[length];
+        // sets a new array to hold the chars in the string
+        char[] chars = new char[length];
 
-        // sets a place to add the new word with spaces
+        // sets a place to add the new string with spaces
         String explodedWord = "";
 
         // checks to see if space needs to be added
         if( length < 2 ) {
-            explodedWord = inputWord;
+            explodedWord = inputString;
             return explodedWord;
 
         } else {
             // runs a for loop to set the array number to the certain letter then concatenates it
-            for(int increment = 0; increment < length; increment++) {
-                letters[increment] = inputWord.charAt(increment);
-                explodedWord = explodedWord + letters[increment] + " ";
+            for(int charNumber = 0; charNumber < length; charNumber++) {
+
+                // sets the value of the array for letter to the value of the char at the increment
+                chars[charNumber] = inputString.charAt(charNumber);
+
+                // concatenates the explodedWord so far, the char in the array and a space
+                explodedWord = explodedWord + chars[charNumber] + " ";
             }
 
             // returns the concatenated word and trims off extra space at the end
@@ -89,5 +93,52 @@ public class Kata {
         }
     }
 
-    
+    // method to take the first and last characters and swap them for a word
+    public String frontBack(String inputString) {
+
+        // checks to see if the string is at least 2 chars long
+        if(inputString.length() <= 1) {
+            return inputString;
+
+        } else {
+
+            // sets the center of the string to middle
+            String middle = inputString.substring(1, inputString.length()-1);
+
+            // returns the last character + middle + the first character
+            return inputString.charAt(inputString.length()-1) + middle + inputString.charAt(0);
+        }
+    }
+
+    // method to take the first three chars (or less) and repeat them 3 times
+
+    public String frontThree(String inputString) {
+        String firstThree;
+
+        // checks to see how long the word is - will only take first three letters
+        if( inputString.length() >= 3) {
+            firstThree = inputString.substring(0, 3);
+
+        } else {
+
+            // assigns the letters that are there if less than three
+            firstThree = inputString;
+        }
+
+        // returns the concatenated string
+        return firstThree + firstThree + firstThree;
+
+    }
+
+    // method to take the last char and put it at the beginning and end of the word
+    public String backAround(String inputString) {
+
+        // declares lastletter variable
+        String lastLetter;
+
+        // sets lastletter variable to the last letter of the given string
+        lastLetter = inputString.substring( inputString.length()-1 );
+        return lastLetter + inputString + lastLetter;
+
+    }
 }
