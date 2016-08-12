@@ -111,7 +111,6 @@ public class Kata {
     }
 
     // method to take the first three chars (or less) and repeat them 3 times
-
     public String frontThree(String inputString) {
         String firstThree;
 
@@ -141,4 +140,84 @@ public class Kata {
         return lastLetter + inputString + lastLetter;
 
     }
+
+    // method to take the first two letters and add them to the front and back
+    public String front22(String inputString) {
+        String lettersToAdd;
+
+        // checks to see if its longer than 2 chars long
+        if(inputString.length() >= 2) {
+
+            // sets the lettersToAdd to the first two letters
+            lettersToAdd = inputString.substring(0, 2);
+
+            // returns the concatenation
+            return lettersToAdd + inputString + lettersToAdd;
+        } else {
+
+            // returns the inputString concatenated with itself since it's less than two characters long
+            return inputString + inputString + inputString;
+        }
+    }
+
+    // method to remove the string del from another given string if it starts at index 1 (second letter)
+    public String delDel(String str) {
+        //String delRemovedEnd;
+        //String firstLetter = str.charAt(0);
+
+        // makes sure word is 4 or more chars and that the string del shows up at substring 1
+        if( (str.length()>=4) && (str.substring(1, 4).equals("del")) ) {
+            return str.substring(0, 1) + str.substring(4);
+            //return str.charAt(0) + delRemovedEnd;
+
+        } else {
+            return str;
+        }
+
+    }
+
+    // method to return the first two letters but only if the first letter is o and the second is z
+    // returning only one if only one is present
+    public String startOz(String inputString) {
+
+        // sets variable lettersOfOz to null
+        String lettersOfOz = "";
+
+        // checks to see if the string is more than one char and if it is the letter o
+        if( (inputString.length() >= 1) && (inputString.charAt(0) == 'o') ) {
+
+            // concatenates lettersOfOz and the first char
+            lettersOfOz = lettersOfOz + inputString.charAt(0);
+        }
+
+        // checks to see if the string is two or more chars long and if its the letter z
+        if( (inputString.length() >= 2) && (inputString.charAt(1) == 'z') ) {
+
+            // concatenates lettersOfOz and the second char
+            lettersOfOz = lettersOfOz + inputString.charAt(1);
+        }
+
+        return lettersOfOz;
+    }
+
+    public String endUp(String inputString) {
+
+        // checks to see if the string is 3 or less characters and if so uppercases all of them
+        if (inputString.length() <= 3) {
+            return inputString.toUpperCase();
+
+        } else {
+
+            // sets backLetters to the location of the last three letters in the string
+            int backLetters = inputString.length() - 3;
+
+            // sets the front and back of the string
+            String stringFront = inputString.substring(0, backLetters);
+            String stringBack  = inputString.substring(backLetters);
+
+            // concatenates the front and the uppercase of the back of the string
+            return stringFront + stringBack.toUpperCase();
+        }
+    }
+
 }
