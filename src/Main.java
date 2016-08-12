@@ -8,9 +8,10 @@ public class Main {
 
         Kata kata = new Kata();
 
-        System.out.println( kata.explode("example") );
-        System.out.println( kata.explode("a") );
-        System.out.println( kata.explode("co") );
-        System.out.println( kata.explode("dont") );
+        System.out.println( "explode(\"example\") -> \"" + kata.explode("example") + "\"" );
+        System.out.println( "explode(\"cat\") -> \"" + kata.explode("cat") + "\"" );
+        System.out.println( "explode(\"\") -> \"" + kata.explode("") + "\"" );
+        System.out.println( "explode(\"c\") -> \"" + kata.explode("c") + "\"" );
+        
     }
 }
